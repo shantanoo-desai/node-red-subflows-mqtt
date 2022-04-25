@@ -1,0 +1,11 @@
+# Compose file with Node-Red Service
+services:
+  node-red:
+    container_name: node-red
+    ports:
+      - "1880:1880"
+    depends_on:
+      - internal-mqtt-broker
+      - external-mqtt-broker
+    networks:
+      - node-red-docker

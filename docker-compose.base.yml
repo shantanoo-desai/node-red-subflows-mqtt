@@ -1,0 +1,15 @@
+# Base Compose File with External Network, Volume Mounts for Services
+networks:
+  node-red-docker:
+
+services:
+  internal-mqtt-broker:
+    volumes:
+      - ./mosquitto/config/internal/mosquitto.internal.conf:/mosquitto/config/mosquitto.conf:ro
+  
+  external-mqtt-broker:
+    volumes:
+      - ./mosquitto/config/external/mosquitto.external.conf:/mosquitto/config/mosquitto.conf:ro
+  
+  node-red:
+    build: .

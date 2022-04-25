@@ -1,0 +1,10 @@
+# Compose file for External MQTT Broker Service
+# Port 1883 is published for external communication
+services:
+  external-mqtt-broker:
+    image: eclipse-mosquitto:2.0.14
+    container_name: external-mqtt-broker
+    ports:
+      - "1883:1883"
+    networks:
+      - node-red-docker

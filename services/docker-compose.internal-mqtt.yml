@@ -1,0 +1,11 @@
+# Compose file for Internal MQTT Broker
+# Only Exposes the port 1883 for accessibilty within
+# within the docker network
+services:
+  internal-mqtt-broker:
+    image: eclipse-mosquitto:2.0.14
+    container_name: internal-mqtt-broker
+    expose:
+      - 1883
+    networks:
+      - node-red-docker
