@@ -1,0 +1,104 @@
+{
+    "id": "09f4602f23427a3a",
+    "type": "subflow",
+    "name": "external mqtt in",
+    "info": "# Internal MQTT In Node\n\nAutomatically connects to the External MQTT Broker and subscribes to User-Defined MQTT Topics\n\n## Subscribe to MQTT Topics\n\nCreate an __Inject__ node with following:\n\n- `msg.action` = `subscribe`\n- `msg.topic` = `YOUR/TOPIC/HERE`\n\nand connect to this node\n\n## Disconnect from External MQTT Broker\n> NOTE: If you disconnect from the broker, you will need to reconnect again\n\nCreate an __Inject__ node with following:\n\n- `msg.action` = `disconnect`\n\nand connect to this node\n\n## Reconnect to External MQTT Broker\n\nCreate an __Inject__ node with following:\n\n- `msg.action` = `connect`\n\nand connect to this node\n\n## Unsubscribe from MQTT Topics\n\nCreate an __Inject__ node with following:\n\n- `msg.action` = `unsubscribe`\n- `msg.topic` = (select boolean) `true`\n\nand connect to this node",
+    "category": "custom-nodes",
+    "in": [
+        {
+            "x": 200,
+            "y": 60,
+            "wires": [
+                {
+                    "id": "8a540602f5295641"
+                }
+            ]
+        }
+    ],
+    "out": [
+        {
+            "x": 600,
+            "y": 60,
+            "wires": [
+                {
+                    "id": "8a540602f5295641",
+                    "port": 0
+                }
+            ]
+        }
+    ],
+    "env": [],
+    "meta": {
+        "module": "subflow-mqtt-common",
+        "type": "mqtt-external-in",
+        "version": "0.1.0",
+        "author": "Shantanoo \"Shan\" Desai <sdes.softdev@gmail.com>",
+        "desc": "MQTT In node for External Broker",
+        "keywords": "mqtt, subflows",
+        "license": "Apache-2.0"
+    },
+    "color": "#DDAA99",
+    "icon": "node-red/bridge.svg",
+    "status": {
+        "x": 580,
+        "y": 160,
+        "wires": [
+            {
+                "id": "8a540602f5295641",
+                "port": 0
+            }
+        ]
+    },
+    "flow": [
+        {
+            "id": "8a540602f5295641",
+            "type": "mqtt in",
+            "z": "09f4602f23427a3a",
+            "name": "External MQTT Broker In",
+            "topic": "",
+            "qos": "2",
+            "datatype": "auto",
+            "broker": "f26f4e0b42d3b959",
+            "nl": false,
+            "rap": true,
+            "rh": 0,
+            "inputs": 1,
+            "x": 390,
+            "y": 60,
+            "wires": [
+                []
+            ]
+        },
+        {
+            "id": "f26f4e0b42d3b959",
+            "type": "mqtt-broker",
+            "z": "09f4602f23427a3a",
+            "name": "External MQTT Broker In",
+            "broker": "external-mqtt-broker",
+            "port": "1883",
+            "clientid": "red-client-mqtt-external-in",
+            "autoConnect": true,
+            "usetls": false,
+            "protocolVersion": "4",
+            "keepalive": "60",
+            "cleansession": true,
+            "birthTopic": "",
+            "birthQos": "0",
+            "birthPayload": "",
+            "birthMsg": {},
+            "closeTopic": "",
+            "closeQos": "0",
+            "closePayload": "",
+            "closeMsg": {},
+            "willTopic": "",
+            "willQos": "0",
+            "willPayload": "",
+            "willMsg": {},
+            "sessionExpiry": "",
+            "credentials": {
+                "user": "",
+                "password": ""
+            }
+        }
+    ]
+}

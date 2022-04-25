@@ -1,0 +1,82 @@
+{
+    "id": "ced02ad71788907a",
+    "type": "subflow",
+    "name": "internal mqtt out",
+    "info": "# Internal MQTT Out Node\n\nAutomatically connects to the Internal MQTT Broker and publish to User-Defined MQTT Topics\n\n## Subscribe to MQTT Topics\n\nCreate an __Inject__ node with following:\n\n- `msg.topic` = `YOUR/TOPIC/HERE`\n\nand connect to this node\n\n## Disconnect from INternal MQTT Broker\n\n> NOTE: If you disconnect from the broker, you will need to reconnect again. \n\nCreate an __Inject__ node with following:\n\n- `msg.action` = `disconnect`\n\nand connect to this node\n\n## Reconnect to Internal MQTT Broker\n\nCreate an __Inject__ node with following:\n\n- `msg.action` = `connect`\n\nand connect to this node",
+    "category": "custom-nodes",
+    "in": [
+        {
+            "x": 160,
+            "y": 180,
+            "wires": [
+                {
+                    "id": "f40d0dbc09407cae"
+                }
+            ]
+        }
+    ],
+    "out": [],
+    "env": [],
+    "meta": {
+        "module": "subflow-mqtt-common",
+        "type": "mqtt-internal-out",
+        "version": "0.1.0",
+        "author": "Shantanoo \"Shan\" Desai <sdes.softdev@gmail.com>",
+        "desc": "MQTT Out Node for Internal Broker",
+        "keywords": "mqtt, subflows",
+        "license": "Apache-2.0"
+    },
+    "color": "#F3B567",
+    "icon": "node-red/bridge.svg",
+    "flow": [
+        {
+            "id": "4afe4316918f609c",
+            "type": "mqtt-broker",
+            "z": "ced02ad71788907a",
+            "name": "Internal MQTT Broker Out Node",
+            "broker": "internal-mqtt-broker",
+            "port": "1883",
+            "clientid": "red-client-mqtt-internal-out",
+            "autoConnect": true,
+            "usetls": false,
+            "protocolVersion": "4",
+            "keepalive": "60",
+            "cleansession": true,
+            "birthTopic": "",
+            "birthQos": "0",
+            "birthPayload": "",
+            "birthMsg": {},
+            "closeTopic": "",
+            "closeQos": "0",
+            "closePayload": "",
+            "closeMsg": {},
+            "willTopic": "",
+            "willQos": "0",
+            "willPayload": "",
+            "willMsg": {},
+            "sessionExpiry": "",
+            "credentials": {
+                "user": "",
+                "password": ""
+            }
+        },
+        {
+            "id": "f40d0dbc09407cae",
+            "type": "mqtt out",
+            "z": "ced02ad71788907a",
+            "name": "MQTT Internal Broker Out",
+            "topic": "",
+            "qos": "",
+            "retain": "",
+            "respTopic": "",
+            "contentType": "",
+            "userProps": "",
+            "correl": "",
+            "expiry": "",
+            "broker": "4afe4316918f609c",
+            "x": 390,
+            "y": 180,
+            "wires": []
+        }
+    ]
+}

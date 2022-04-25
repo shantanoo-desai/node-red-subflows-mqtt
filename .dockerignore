@@ -1,0 +1,10 @@
+# Ignore all Compose Files
+services
+docker-compose.base.yml
+docker-compose.yml
+Makefile
+
+# Ignore all broker configurations
+mosquitto
+
+*.md

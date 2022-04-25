@@ -1,0 +1,82 @@
+{
+    "id": "b4084845899b60e6",
+    "type": "subflow",
+    "name": "external mqtt out",
+    "info": "# External MQTT Out Node\n\nAutomatically connects to the Internal MQTT Broker and publish to User-Defined MQTT Topics\n\n## Subscribe to MQTT Topics\n\nCreate an __Inject__ node with following:\n\n- `msg.topic` = `YOUR/TOPIC/HERE`\n\nand connect to this node\n\n## Disconnect from External MQTT Broker\n\n> NOTE: If you disconnect from the broker, you will need to reconnect again. \n\nCreate an __Inject__ node with following:\n\n- `msg.action` = `disconnect`\n\nand connect to this node\n\n## Reconnect to External MQTT Broker\n\nCreate an __Inject__ node with following:\n\n- `msg.action` = `connect`\n\nand connect to this node",
+    "category": "custom-nodes",
+    "in": [
+        {
+            "x": 300,
+            "y": 140,
+            "wires": [
+                {
+                    "id": "c8a8411ee45b3e61"
+                }
+            ]
+        }
+    ],
+    "out": [],
+    "env": [],
+    "meta": {
+        "module": "mqtt-subflows-common",
+        "type": "mqtt-external-out",
+        "version": "0.1.0",
+        "author": "Shantanoo \"Shan\" Desai <sdes.softdev@gmail.com>",
+        "desc": "MQTT Out Node for External Broker",
+        "keywords": "mqtt, subflows",
+        "license": "Apache-2.0"
+    },
+    "color": "#DDAA99",
+    "icon": "node-red/bridge.svg",
+    "flow": [
+        {
+            "id": "c8a8411ee45b3e61",
+            "type": "mqtt out",
+            "z": "b4084845899b60e6",
+            "name": "External MQTT Broker Out",
+            "topic": "",
+            "qos": "",
+            "retain": "",
+            "respTopic": "",
+            "contentType": "",
+            "userProps": "",
+            "correl": "",
+            "expiry": "",
+            "broker": "11046cc01f6c0432",
+            "x": 520,
+            "y": 140,
+            "wires": []
+        },
+        {
+            "id": "11046cc01f6c0432",
+            "type": "mqtt-broker",
+            "z": "b4084845899b60e6",
+            "name": "External MQTT Broker Out",
+            "broker": "external-mqtt-broker",
+            "port": "1883",
+            "clientid": "red-client-external-mqtt-out",
+            "autoConnect": true,
+            "usetls": false,
+            "protocolVersion": "4",
+            "keepalive": "60",
+            "cleansession": true,
+            "birthTopic": "",
+            "birthQos": "0",
+            "birthPayload": "",
+            "birthMsg": {},
+            "closeTopic": "",
+            "closeQos": "0",
+            "closePayload": "",
+            "closeMsg": {},
+            "willTopic": "",
+            "willQos": "0",
+            "willPayload": "",
+            "willMsg": {},
+            "sessionExpiry": "",
+            "credentials": {
+                "user": "",
+                "password": ""
+            }
+        }
+    ]
+}
