@@ -9,10 +9,10 @@
     "node-red"     : {
         "version": ">=2.0.0",
         "nodes": {
-            "custom-nodes-external-mqtt-in": "node-red/subflows/custom-nodes-external-mqtt-in.js",
-            "custom-nodes-external-mqtt-out": "node-red/subflows/custom-nodes-external-mqtt-out.js",
-            "custom-nodes-internal-mqtt-in": "node-red/subflows/custom-nodes-internal-mqtt-in.js",
-            "custom-nodes-internal-mqtt-out": "node-red/subflows/custom-nodes-internal-mqtt-out.js"
+            "custom-nodes-external-mqtt-in": "./custom-subflows/subflows/custom-nodes-external-mqtt-in.js",
+            "custom-nodes-external-mqtt-out": "./custom-subflows/subflows/custom-nodes-external-mqtt-out.js",
+            "custom-nodes-internal-mqtt-in": "./custom-subflows/subflows/custom-nodes-internal-mqtt-in.js",
+            "custom-nodes-internal-mqtt-out": "./custom-subflows/subflows/custom-nodes-internal-mqtt-out.js"
         }
     },
     "scripts": {
